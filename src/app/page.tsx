@@ -11,20 +11,77 @@ const TOTAL_DAYS = DAYS_BEFORE + DAYS_AFTER + 1;
 const DAY_WIDTH = 3600; 
 const TOTAL_WIDTH = TOTAL_DAYS * DAY_WIDTH;
 
+type PrayerName =
+  | "Fajr"
+  | "Sunrise"
+  | "Dhuhr"
+  | "Asr"
+  | "Maghrib"
+  | "Isha"
+  | "Midnight";
 
 export default function Home() {
-  const prayerNamesMap: any = {
-    tr: { Fajr: "Sabah", Sunrise: "Güneş", Dhuhr: "Öğle", Asr: "İkindi", Maghrib: "Akşam", Isha: "Yatsı", Midnight: "Gece Yarısı" },
-    ar: { Fajr: "الفجر", Sunrise: "الشروق", Dhuhr: "الظهر", Asr: "العصر", Maghrib: "المغرب", Isha: "العشاء", Midnight: "منتصف الليل" }
+
+  const [lang, setLang] = useState<"tr" | "ar" | "en">("en");
+  const [locale, setLocale] = useState("en-US");
+
+  useEffect(() => {
+    const browserLang = navigator.language || "en-US";
+    const short = browserLang.split("-")[0];
+
+    setLocale(browserLang);
+
+    if (short === "tr") {
+      setLang("tr");
+    } else if (short === "ar") {
+      setLang("ar");
+    } else {
+      setLang("en");
+    }
+  }, []);
+
+
+  const prayerNamesMap: Record<
+    "tr" | "ar" | "en",
+    Record<PrayerName, string>
+  > = {
+    tr: {
+      Fajr: "Sabah",
+      Sunrise: "Güneş",
+      Dhuhr: "Öğle",
+      Asr: "İkindi",
+      Maghrib: "Akşam",
+      Isha: "Yatsı",
+      Midnight: "Gece Yarısı"
+    },
+    ar: {
+      Fajr: "الفجر",
+      Sunrise: "الشروق",
+      Dhuhr: "الظهر",
+      Asr: "العصر",
+      Maghrib: "المغرب",
+      Isha: "العشاء",
+      Midnight: "منتصف الليل"
+    },
+    en: {
+      Fajr: "Fajr",
+      Sunrise: "Sunrise",
+      Dhuhr: "Dhuhr",
+      Asr: "Asr",
+      Maghrib: "Maghrib",
+      Isha: "Isha",
+      Midnight: "Midnight"
+    }
   };
-  function getPrayerTranslation(name: string) {
-    if (typeof window === "undefined") return name;
-    const lang = navigator.language.split('-')[0];
-    const dictionary = prayerNamesMap[lang];
-    if (dictionary && dictionary[name]) return dictionary[name];
-    return name; 
-  }
-  const [prayers, setPrayers] = useState<any[]>([]);
+    function getPrayerTranslation(name: PrayerName) {
+      return prayerNamesMap[lang][name];
+    }
+  type Prayer = {
+  name: PrayerName;
+  time: string;
+};
+
+  const [prayers, setPrayers] = useState<Prayer[]>([]);
   const [selectedPrayer, setSelectedPrayer] = useState<string | null>(null);
   
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -106,13 +163,13 @@ export default function Home() {
   const [currentDateStr, setCurrentDateStr] = useState("");
 
   useEffect(() => {
-    const str = activeDateObj.toLocaleDateString(navigator.language, {
-      weekday: 'long',
-      month: 'long',
-      day: 'numeric'
+    const str = activeDateObj.toLocaleDateString(locale, {
+      weekday: "long",
+      month: "long",
+      day: "numeric"
     });
     setCurrentDateStr(str);
-  }, [centerOffset]);
+  }, [centerOffset, locale]);
   const pixelWithinDay = centerOffset % DAY_WIDTH;
   const minuteWithinDay = Math.floor((pixelWithinDay / DAY_WIDTH) * 1440);
   const centerHours = Math.floor(minuteWithinDay / 60);
@@ -253,7 +310,7 @@ export default function Home() {
                     >
                       <div className="mb-4 w-40 text-center pointer-events-none">
                         <p className="text-[10px] font-black uppercase text-zinc-400 tracking-widest mb-1">
-                          {pDate.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })} — {pDate.getHours()}:{pDate.getMinutes().toString().padStart(2,'0')}
+                          {pDate.toLocaleDateString(locale, { month: 'short', day: 'numeric' })} — {pDate.getHours()}:{pDate.getMinutes().toString().padStart(2,'0')}
                         </p>
                         <h3 className="text-xl font-black uppercase italic leading-none text-zinc-800">
                           {getPrayerTranslation(prayer.name)}
@@ -278,7 +335,10 @@ export default function Home() {
                       <div className="mt-4 w-40 text-center pointer-events-none">
                         <h3 className="text-xl font-black uppercase italic leading-none text-zinc-800">{getPrayerTranslation(prayer.name)}</h3>
                         <p className="text-[10px] font-black uppercase text-zinc-400 tracking-widest mt-1">
-                          {pDate.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })} — {pDate.getHours()}:{pDate.getMinutes().toString().padStart(2,'0')}
+                          {pDate.toLocaleDateString(locale, { month: 'short', day: 'numeric' })} — {pDate.toLocaleTimeString(locale, {
+                              hour: "2-digit",
+                              minute: "2-digit"
+                            })}
                         </p>
                       </div>
                     </motion.div>
