@@ -30,11 +30,11 @@ The primary goal of this project is to **simplify** the process of tracking pray
 
 ##  Key Features
 
-* ** Simplified Timings:** Accurate prayer times for Darıca, Kocaeli (40.77, 29.35) presented in a clean, distraction-free timeline.
-* ** Interactive Step-by-Step Guides:** Each prayer (Fajr, Dhuhr, Asr, Maghrib, Isha) has its own dedicated guide focusing on the essential movements and recitations.
-* ** 30-Day View:** Easily scroll through 15 days of history and 15 days of future timings to plan your worship.
-* ** Smart Translation:** Automatically detects your system language (EN, TR, AR priority) and uses Google Translate to ensure accessibility for every nation.
-* ** Mobile-First Design:** A fully responsive web app that feels like a native application on your phone.
+* **Simplified Timings:** Accurate prayer times for Darıca, Kocaeli (40.77, 29.35) presented in a clean, distraction-free timeline.
+* **Interactive Step-by-Step Guides:** Each prayer (Fajr, Dhuhr, Asr, Maghrib, Isha) has its own dedicated guide focusing on the essential movements and recitations.
+* **30-Day View:** Easily scroll through 15 days of history and 15 days of future timings to plan your worship.
+* **Smart Translation:** Automatically detects your system language (EN, TR, AR priority) and uses Google Translate to ensure accessibility for every nation.
+* **Mobile-First Design:** A fully responsive web app that feels like a native application on your phone.
 
 ##  Tech Stack
 
