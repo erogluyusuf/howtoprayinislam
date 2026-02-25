@@ -1,8 +1,9 @@
+  <img src="src/app/logo.png" alt="Ulak Logo" width="400">
 <div align="center">
   <h1>🕋 How To Pray In Islam?</h1>
   
   <p><b>A simplified, accessible, and intuitive guide for new Muslims and those refreshing their knowledge.</b></p>
-
+ 
 <a href="https://howtoprayinislam.vercel.app/">
     <img src="https://img.shields.io/badge/Live_Demo-Visit_Website-brightgreen?style=for-the-badge&logo=vercel" alt="Live Demo">
   </a>
