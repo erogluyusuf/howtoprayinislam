@@ -1,5 +1,6 @@
-  <img src="src/app/pray.png" alt="pray" width="400">
+
 <div align="center">
+  <img src="src/app/pray.png" alt="pray" width="400">
   <h1>🕋 How To Pray In Islam?</h1>
   
   <p><b>A simplified, accessible, and intuitive guide for new Muslims and those refreshing their knowledge.</b></p>
