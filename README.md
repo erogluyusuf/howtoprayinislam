@@ -1,4 +1,4 @@
-  <img src="src/app/logo.png" alt="Ulak Logo" width="400">
+  <img src="src/app/pray.png" alt="pray" width="400">
 <div align="center">
   <h1>🕋 How To Pray In Islam?</h1>
   
