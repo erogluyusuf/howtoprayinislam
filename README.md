@@ -3,6 +3,11 @@
   
   <p><b>A simplified, accessible, and intuitive guide for new Muslims and those refreshing their knowledge.</b></p>
 
+<a href="https://howtoprayinislam.vercel.app/">
+    <img src="https://img.shields.io/badge/Live_Demo-Visit_Website-brightgreen?style=for-the-badge&logo=vercel" alt="Live Demo">
+  </a>
+
+
   [![Project Status](https://img.shields.io/badge/Status-Active-brightgreen)](#)
   [![Platform](https://img.shields.io/badge/Platform-Web%20%2F%20Mobile-lightgrey)](#)
   [![Framework](https://img.shields.io/badge/Framework-Next.js%2015-black?logo=next.js&logoColor=white)](https://nextjs.org/)
