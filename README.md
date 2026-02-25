@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <h1>🕋 How To Pray In Islam?</h1>
+  
+  <p><b>A simplified, accessible, and intuitive guide for new Muslims and those refreshing their knowledge.</b></p>
 
-## Getting Started
+  [![Project Status](https://img.shields.io/badge/Status-Active-brightgreen)](#)
+  [![Platform](https://img.shields.io/badge/Platform-Web%20%2F%20Mobile-lightgrey)](#)
+  [![Framework](https://img.shields.io/badge/Framework-Next.js%2015-black?logo=next.js&logoColor=white)](https://nextjs.org/)
+  [![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
+  <br>
+  ![Next.js](https://img.shields.io/badge/Frontend-React%20%7C%20Tailwind-blue?logo=react)
+  ![Framer Motion](https://img.shields.io/badge/Animations-Framer%20Motion-black?logo=framer)
+  ![Adhan.js](https://img.shields.io/badge/Logic-Adhan.js-informational)
+</div>
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🎯 Project Mission
+The primary goal of this project is to **simplify** the process of tracking prayer times and learning the prayer (Salah). It is specifically designed for:
+* **Reverts:** Those who have recently embraced Islam and need a clear, non-intimidating start.
+* **Refresher Learners:** People who want to remember the steps and timings of Salah in a modern way.
+* **Minimalist Users:** Anyone who prefers a clean, ad-free, and straightforward interface over complex apps.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* **📍 Simplified Timings:** Accurate prayer times for Darıca, Kocaeli (40.77, 29.35) presented in a clean, distraction-free timeline.
+* **📖 Interactive Step-by-Step Guides:** Each prayer (Fajr, Dhuhr, Asr, Maghrib, Isha) has its own dedicated guide focusing on the essential movements and recitations.
+* **⏳ 30-Day View:** Easily scroll through 15 days of history and 15 days of future timings to plan your worship.
+* **🌍 Smart Translation:** Automatically detects your system language (EN, TR, AR priority) and uses Google Translate to ensure accessibility for every nation.
+* **📱 Mobile-First Design:** A fully responsive web app that feels like a native application on your phone.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack
 
-## Learn More
+| Technology | Purpose |
+| :--- | :--- |
+| **Next.js 15** | Core framework for speed and SEO. |
+| **Tailwind CSS** | Clean, minimalist styling. |
+| **Framer Motion** | Smooth, intuitive animations for the timeline. |
+| **Adhan.js** | Precise astronomical prayer time calculations. |
+| **Lucide Icons** | Minimalist icons for easy visual recognition. |
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Installation & Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1.  Clone the repository:
+    ```bash
+    git clone [https://github.com/erogluyusuf/howtoprayinislam.git](https://github.com/erogluyusuf/howtoprayinislam.git)
+    ```
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+3.  Run development server:
+    ```bash
+    npm run dev
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📜 License
+This project is open-source and available under the MIT License.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<div align="center">
+  <b>Simplifying the path to Salah.</b> <br>
+  Developed with intention by <b>Yusuf Eroğlu</b>
+</div>
