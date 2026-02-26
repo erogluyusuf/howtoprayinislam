@@ -1,37 +1,22 @@
+"use client";
+import BasePrayerGuide, { Step } from "./BasePrayerGuide";
+import VerseHadithBlock from "@/components/islamic/VerseHadithBlock";
+
 export default function FajrGuide() {
   return (
-    <div className="max-w-3xl mx-auto space-y-6">
-      {/* Vakit Başlığı ve Rekat Bilgisi */}
-      <div className="mb-8 pb-6 border-b border-zinc-200 text-center">
-        <h3 className="text-3xl font-black uppercase italic text-zinc-800">Fajr Prayer (Sabah)</h3>
-        <p className="text-sm font-bold text-emerald-600 uppercase tracking-[0.3em] mt-2">2 Sunnah • 2 Fard</p>
-        <p className="text-zinc-500 mt-4 text-sm max-w-lg mx-auto">
-          The Fajr prayer is the dawn prayer. It is highly rewarded as it starts your day with the remembrance of Allah.
-        </p>
-      </div>
+    <BasePrayerGuide
+      title="Fajr Prayer (Sabah)"
+      subtitle="2 Sunnah • 2 Fard"
+      description="The Fajr prayer is the dawn prayer. It is highly rewarded to pray it at the beginning of its time."
+    >
+      <VerseHadithBlock />
 
-      {/* Adımlar */}
-      <div className="space-y-4">
-        <Step num={1} title="Niyyah (Intention)" desc="Stand facing the Qiblah. Silently make the intention in your heart to perform the Fajr prayer." />
-        <Step num={2} title="Takbiratul Ihram" desc="Raise your hands to your ears and say 'Allahu Akbar' (God is the greatest)." isRed />
-        <Step num={3} title="Qiyam (Standing)" desc="Place your right hand over your left on your chest. Recite Surah Al-Fatiha, followed by another short Surah." />
-        <Step num={4} title="Ruku (Bowing)" desc="Bow down with your hands on your knees. Say 'Subhana Rabbiyal Azim' (Glory be to my Lord the Supreme) 3 times." isRed />
-        <Step num={5} title="Sujud (Prostration)" desc="Prostrate on the ground touching your forehead, nose, both hands, knees, and toes to the floor. Say 'Subhana Rabbiyal A'la' 3 times." />
-        <Step num={6} title="Tashahhud & Tasleem" desc="After the final rakat, sit and recite the Tashahhud and Salawat. Then turn your head to the right and left, saying 'Assalamu alaikum wa rahmatullah'." isRed />
-      </div>
-    </div>
+      <Step num={1} title="Niyyah (Intention)" desc="Make the intention to pray the 2 rakats Sunnah or 2 rakats Fard of the Fajr prayer." />
+      <Step num={2} title="Takbir & Qiyam" desc="Say 'Allahu Akbar'. For the Fard of Fajr, it is recommended to recite longer Surahs." isRed />
+      <Step num={3} title="Ruku (Bowing)" desc="Bow smoothly. Keep your back parallel to the ground and say 'Subhana Rabbiyal Azim' 3 times." />
+      <Step num={4} title="Sujud (Prostration)" desc="Prostrate twice per rakat, pausing completely in the sitting position between them." isRed />
+      <Step num={5} title="Final Tashahhud" desc="Sit after the 2nd rakat for the final Tashahhud, recite Attahiyat, Salawat, and Rabbana." />
+      <Step num={6} title="Tasleem" desc="Conclude the prayer by turning your face right, then left, saying 'As-salamu alaykum wa rahmatullah'." isRed />
+    </BasePrayerGuide>
   );
 }
-
-// Tasarımı kolaylaştıran yardımcı bileşen
-const Step = ({ num, title, desc, isRed }: { num: number, title: string, desc: string, isRed?: boolean }) => (
-  <div className="flex gap-4 items-start p-5 bg-[#f8f9fa] rounded-2xl border border-zinc-100 transition-all hover:border-zinc-300 hover:shadow-sm">
-    <div className={`w-12 h-12 text-white rounded-full flex items-center justify-center font-black shrink-0 shadow-md ${isRed ? 'bg-[#E63946]' : 'bg-zinc-900'}`}>
-      {num}
-    </div>
-    <div className="pt-1">
-      <h3 className="text-lg font-bold mb-1 text-zinc-800">{title}</h3>
-      <p className="text-zinc-500 text-sm leading-relaxed">{desc}</p>
-    </div>
-  </div>
-);
