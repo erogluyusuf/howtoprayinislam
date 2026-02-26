@@ -1,12 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import VerseHadithBlock from "@/components/islamic/VerseHadithBlock";
 import { motion, AnimatePresence } from "framer-motion";
 
 const uiTranslations = {
-  en: { guide: "How to Pray", surahs: "Surahs", back: "← Back to List", loading: "Loading Surahs..." },
-  tr: { guide: "Kılınış", surahs: "Sureler", back: "← Listeye Dön", loading: "Sureler Yükleniyor..." },
-  ar: { guide: "كيفية الصلاة", surahs: "السور", back: "← العودة للقائمة", loading: "جاري تحميل السور..." }
+  en: { back: "← Back to List", loading: "Loading Surahs..." },
+  tr: { back: "← Listeye Dön", loading: "Sureler Yükleniyor..." },
+  ar: { back: "← العودة للقائمة", loading: "جاري تحميل السور..." }
 };
 
 export default function AsrGuide() {
@@ -51,21 +52,26 @@ export default function AsrGuide() {
         </p>
       </div>
 
-      {/* İKONLU BUTONLAR */}
-      <div className="flex justify-center gap-4 mb-8 shrink-0">
+      {/* YUVARLAK, YAZISIZ, BEYAZ İKON BUTONLARI */}
+      <div className="flex justify-center gap-6 mb-8 shrink-0">
         <button
           onClick={() => setActiveTab("guide")}
-          className={`px-6 py-3 rounded-2xl font-bold transition-all text-sm tracking-wide flex items-center gap-3 border ${
+          // w-14 h-14 ile tam kare yapıp rounded-full ile yuvarlattık. bg-white sabit.
+          className={`w-14 h-14 rounded-full transition-all flex items-center justify-center bg-white border-2 ${
             activeTab === "guide" 
-            ? "bg-zinc-900 text-white shadow-lg border-zinc-900" 
-            : "bg-white text-zinc-500 border-zinc-200 hover:bg-zinc-50"
+            ? "border-emerald-500 shadow-md scale-110" // Aktifse çerçevesi yeşil, gölgeli ve hafif büyük
+            : "border-zinc-200 hover:border-zinc-300 opacity-60 hover:opacity-100" // Aktif değilse soluk ve gri çerçeve
           }`}
+          title="Guide" // Üzerine gelince ne olduğu anlaşılsın diye title eklendi
         >
-          {/* Namaz Kılan İnsan İkonu */}
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2M11 22V17H13V22H11M16.5 11.5L14.5 10.5C14.2 10.3 13.9 10.2 13.6 10.1C13.3 10 13 10 12.7 10H11.3C10.5 10 9.7 10.4 9.2 11.1L6.4 15.3L7.7 16.2L10 13V15.5V20H14V14L15.3 15.2C15.7 15.6 16.2 15.9 16.8 15.9C17.4 15.9 18 15.7 18.4 15.3L21 12.7L19.6 11.3L16.5 14V11.5" />
-          </svg>
-          {t.guide}
+          <Image 
+            src="/pray.svg" 
+            alt="Prayer Icon" 
+            width={28} 
+            height={28}
+            // SVG'nin rengi siyahsa, invert filtresi kaldırıldı ki beyaz butonda görünsün
+            className="transition-all"
+          />
         </button>
 
         <button
@@ -73,19 +79,20 @@ export default function AsrGuide() {
             setActiveTab("surahs");
             setSelectedSurah(null);
           }}
-          className={`px-6 py-3 rounded-2xl font-bold transition-all text-sm tracking-wide flex items-center gap-3 border ${
+          className={`w-14 h-14 rounded-full transition-all flex items-center justify-center bg-white border-2 ${
             activeTab === "surahs" 
-            ? "bg-zinc-900 text-white shadow-lg border-zinc-900" 
-            : "bg-white text-zinc-500 border-zinc-200 hover:bg-zinc-50"
+            ? "border-emerald-500 shadow-md scale-110" 
+            : "border-zinc-200 hover:border-zinc-300 opacity-60 hover:opacity-100"
           }`}
+          title="Surahs"
         >
-          {/* Kur'an-ı Kerim / Kitap İkonu */}
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-            <path d="M8 6h8" /><path d="M8 10h8" /><path d="M8 14h4" />
-          </svg>
-          {t.surahs}
+          <Image 
+            src="/quran.svg" 
+            alt="Quran Icon" 
+            width={28} 
+            height={28}
+            className="transition-all"
+          />
         </button>
       </div>
 
