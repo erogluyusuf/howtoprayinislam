@@ -173,16 +173,21 @@ export default function AsrGuide() {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 20 }}
-                      className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 w-full pb-8 auto-rows-max"
+                      // Grid gap biraz daha sıkılaştırıldı
+                      className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 w-full pb-8 auto-rows-max"
                     >
                       {surahsData.map((surah) => (
                         <button
                           key={surah.id}
                           onClick={() => setSelectedSurah(surah)}
-                          className="relative w-full p-6 border border-zinc-200 rounded-[2rem] hover:border-emerald-500 hover:shadow-lg transition-all flex flex-col items-center justify-center text-center group bg-[#f8f9fa] hover:bg-white aspect-square overflow-visible"
+                          // aspect-square KALDIRILDI. 
+                          // Yerine h-28 (112px yükseklik) verildi. Padding p-3'e düşürüldü. 
+                          // rounded-[1.5rem] ile köşeler buton yüksekliğine uygun hale getirildi.
+                          className="relative w-full h-28 p-3 border border-zinc-200 rounded-[1.5rem] hover:border-emerald-500 hover:shadow-md transition-all flex flex-col items-center justify-center text-center group bg-[#f8f9fa] hover:bg-white overflow-hidden"
                         >
-                          <div className="flex flex-col items-center gap-2">
-                            <span className="text-3xl sm:text-4xl text-zinc-800 group-hover:text-emerald-700 transition-colors font-medium" dir="rtl">
+                          <div className="flex flex-col items-center gap-1.5 mt-1">
+                            {/* Arapça metin biraz küçültüldü */}
+                            <span className="text-2xl sm:text-3xl text-zinc-800 group-hover:text-emerald-700 transition-colors font-medium" dir="rtl">
                               {surah.name.ar}
                             </span>
                             <span className="font-bold text-[10px] sm:text-xs text-zinc-400 group-hover:text-emerald-600 transition-colors uppercase tracking-wider truncate w-full px-2">
