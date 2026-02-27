@@ -167,7 +167,29 @@ export default function BasePrayerGuide({ title, subtitle, description, children
 // BasePrayerGuide.tsx dosyasının en altı:
 // BasePrayerGuide.tsx dosyasının en altı:
 
-export const Step = ({ num, title, desc, isRed, image, image2, image3, image4 }: { num: number, title: string, desc: string, isRed?: boolean, image?: string, image2?: string, image3?: string, image4?: string }) => (
+export const Step = ({ 
+  num, 
+  title, 
+  desc, 
+  isRed, 
+  image, 
+  image2, 
+  image3, 
+  image4,
+  image5,
+  image6
+}: { 
+  num: number, 
+  title: string, 
+  desc: string, 
+  isRed?: boolean, 
+  image?: string, 
+  image2?: string, 
+  image3?: string, 
+  image4?: string,
+  image5?: string,
+  image6?: string
+}) => (
   <div className="flex gap-4 items-start p-5 bg-[#f8f9fa] rounded-2xl border border-zinc-100 transition-all hover:border-zinc-300 hover:shadow-sm w-full">
     {/* Numara Yuvarlağı */}
     <div 
@@ -183,9 +205,9 @@ export const Step = ({ num, title, desc, isRed, image, image2, image3, image4 }:
       <p className="text-zinc-500 text-sm leading-relaxed">{desc}</p>
       
       {/* Eğer herhangi bir image prop'u varsa bu alanı göster */}
-      {(image || image2 || image3 || image4) && (
+      {(image || image2 || image3 || image4 || image5 || image6) && (
         <div className="mt-4 p-4 bg-white rounded-xl border border-zinc-200 shadow-sm w-full">
-          {/* flex-wrap eklendi: Eğer 4 resim ekrana sığmazsa (mobilde) otomatik 2x2 alt alta geçer */}
+          {/* flex-wrap eklendi: Eğer resimler ekrana sığmazsa (mobilde) otomatik alt alta geçer */}
           <div className="flex flex-wrap justify-center items-center gap-4 w-full">
             
             {image && (
@@ -209,6 +231,18 @@ export const Step = ({ num, title, desc, isRed, image, image2, image3, image4 }:
             {image4 && (
               <div className="flex-1 min-w-[100px] flex justify-center items-center bg-[#f8f9fa] rounded-lg p-3 border border-zinc-100">
                 <Image src={image4} alt={`${title} - 4`} width={120} height={120} className="opacity-80 object-contain" />
+              </div>
+            )}
+
+            {image5 && (
+              <div className="flex-1 min-w-[100px] flex justify-center items-center bg-[#f8f9fa] rounded-lg p-3 border border-zinc-100">
+                <Image src={image5} alt={`${title} - 5`} width={120} height={120} className="opacity-80 object-contain" />
+              </div>
+            )}
+
+            {image6 && (
+              <div className="flex-1 min-w-[100px] flex justify-center items-center bg-[#f8f9fa] rounded-lg p-3 border border-zinc-100">
+                <Image src={image6} alt={`${title} - 6`} width={120} height={120} className="opacity-80 object-contain" />
               </div>
             )}
 
